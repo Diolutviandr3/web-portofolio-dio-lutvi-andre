@@ -1,0 +1,42 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+.page-content {
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0.7;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    color: #3b82f6;
+}

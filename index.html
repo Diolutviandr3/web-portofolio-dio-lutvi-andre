@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dio Lutvi Andre | Digital Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#121212] text-zinc-300 font-sans">
+
+    <nav class="fixed w-full z-50 bg-[#121212]/90 backdrop-blur-md border-b border-zinc-800 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="text-xl font-bold text-white tracking-tighter">DIO LUTVI ANDRE <span class="text-blue-500">PORTFOLIO</span></span>
+            <div class="flex flex-wrap justify-center gap-4 text-[11px] md:text-sm font-medium">
+                <button onclick="showPage('home')" class="nav-link">Home</button>
+                <button onclick="showPage('about')" class="nav-link">About Me</button>
+                <button onclick="showPage('experiences')" class="nav-link">Experiences</button>
+                <button onclick="showPage('skills')" class="nav-link">Skills</button>
+                <button onclick="showPage('projects')" class="nav-link">Projects</button>
+                <button onclick="showPage('certifications')" class="nav-link">Certifications</button>
+                <button onclick="showPage('articles')" class="nav-link">Articles</button>
+                <button onclick="showPage('contact')" class="nav-link bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+        
+        <section id="home" class="page-content flex flex-col items-center text-center">
+            <div class="mb-6 relative">
+                <div class="w-40 h-40 rounded-full border-4 border-blue-500 overflow-hidden shadow-2xl shadow-blue-500/20">
+                    <img src="foto-profil-dio.jpg" alt="Dio Lutvi Andre" class="w-full h-full object-cover">
+                </div>
+                <span class="absolute bottom-2 right-2 bg-green-500 text-black text-[10px] font-bold px-2 py-1 rounded-full">OPEN TO WORK</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4">Dio Lutvi Andre</h1>
+            <p class="text-lg text-zinc-400">Sistem Informasi - Universitas Ahmad Dahlan</p>
+            
+            <button onclick="showPage('about')" class="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition shadow-lg shadow-blue-500/20">
+                Explore Now
+            </button>
+
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-zinc-800 pt-10 w-full max-w-4xl">
+                <div><h3 class="text-3xl font-bold text-white">20+</h3><p class="text-xs text-zinc-500 uppercase">Certifications</p></div>
+                <div><h3 class="text-3xl font-bold text-white">10+</h3><p class="text-xs text-zinc-500 uppercase">Projects Handled</p></div>
+                <div><h3 class="text-3xl font-bold text-white">2+</h3><p class="text-xs text-zinc-500 uppercase">Years Experience</p></div>
+                <div><h3 class="text-3xl font-bold text-white">15+</h3><p class="text-xs text-zinc-500 uppercase">Achievements</p></div>
+            </div>
+        </section>
+
+        <section id="about" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white mb-8">About Me</h2>
+            <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+                <p class="text-lg leading-relaxed mb-6">
+                    Saya adalah mahasiswa semester 4 di Universitas Ahmad Dahlan dan penerima beasiswa KIPK-M. Senang belajar hal baru, berorientasi pada detail, serta memiliki aspirasi untuk berkarier di bidang teknologi dan sains.
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="p-4 bg-[#121212] rounded-lg"><strong>Email:</strong> diolutviandre1412@gmail.com</div>
+                    <div class="p-4 bg-[#121212] rounded-lg"><strong>LinkedIn:</strong> linkedin.com/in/diolutviandre</div>
+                    <div class="p-4 bg-[#121212] rounded-lg"><strong>Instagram:</strong> instagram.com/_dla99</div>
+                    <div class="p-4 bg-[#121212] rounded-lg"><strong>Pendidikan:</strong> Sistem Informasi - UAD</div>
+                    <div class="p-4 bg-[#121212] rounded-lg"><strong>Lokasi:</strong> Bantul, DI Yogyakarta</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiences" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white mb-8">Experiences</h2>
+            <div id="experience-render" class="grid gap-6"></div>
+        </section>
+
+        <section id="skills" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Technical & Soft Skills</h2>
+            <div id="skills-render" class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto"></div>
+        </section>
+
+        <section id="projects" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white mb-8">Technical Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-white">NUSA Project</h3>
+                    <p class="text-sm text-zinc-500 mt-2">Pengembangan logo dan identitas visual untuk brand Nusantara.</p>
+                </div>
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-white">Food Business Innovation</h3>
+                    <p class="text-sm text-zinc-500 mt-2">Proyek inkubasi bisnis inovasi produk pangan berbasis Talas Pratama.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white mb-8">Professional Certifications</h2>
+            <div id="cert-render" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section id="articles" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white mb-8">Scientific Articles</h2>
+            <div id="article-render" class="grid gap-6"></div>
+        </section>
+
+        <section id="contact" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Get In Touch</h2>
+            <form class="max-w-2xl mx-auto bg-zinc-900 p-8 rounded-2xl border border-zinc-800 space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Full Name" class="w-full bg-[#121212] border border-zinc-800 rounded-xl p-4 outline-none focus:border-blue-500 transition">
+                    <input type="email" placeholder="Email Address" class="w-full bg-[#121212] border border-zinc-800 rounded-xl p-4 outline-none focus:border-blue-500 transition">
+                </div>
+                <textarea rows="4" placeholder="Your Message" class="w-full bg-[#121212] border border-zinc-800 rounded-xl p-4 outline-none focus:border-blue-500 transition"></textarea>
+                <button type="button" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition">Send Message</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="py-10 text-center text-zinc-600 text-xs border-t border-zinc-900">
+        <p>© 2026 Dio Lutvi Andre. Built with Passion & Technology.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
