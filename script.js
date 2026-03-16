@@ -105,6 +105,20 @@ const achievements = [
 
 const certs = [
     { 
+        title: "", 
+        issuer: "", 
+        year: "2025",
+        imgUrl: "imgcertif/.jpg",
+        credentialUrl: ""
+    },
+    { 
+        title: "Pengenalan Keamanan Siber", 
+        issuer: "Nasional - Cisco Networking Academy & IDCamp", 
+        year: "2025",
+        imgUrl: "imgcertif/cybersecurity_certificate.jpg",
+        credentialUrl: "https://drive.google.com/file/d/1CimmaU1WwAMSj-eu6E7L0Cj5WpAh8uFo/view?usp=drive_link"
+    },
+    { 
         title: "Pelatihan Essai Ahmad Dahlan International Youth Camp", 
         issuer: "International - UAD", 
         year: "2025",
