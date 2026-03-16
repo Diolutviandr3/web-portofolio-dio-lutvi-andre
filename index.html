@@ -10,19 +10,18 @@
 </head>
 <body class="bg-[#121212] text-zinc-300 font-sans">
 
-    <nav class="fixed w-full z-50 bg-[#121212]/90 backdrop-blur-md border-b border-zinc-800 px-6 py-4">
+    <nav class="fixed w-full z-50 bg-[#121212]/90 backdrop-blur-md border-b border-zinc-800 px-4 py-4">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <span class="text-xl font-bold text-white tracking-tighter">DIO LUTVI ANDRE <span class="text-blue-500">PORTFOLIO</span></span>
-            <div class="flex flex-wrap justify-center gap-4 text-[11px] md:text-sm font-medium">
-                <button onclick="showPage('home')" class="nav-link">Home</button>
-                <button onclick="showPage('about')" class="nav-link">About Me</button>
-                <button onclick="showPage('skills')" class="nav-link">Skills</button>
-                <button onclick="showPage('experiences')" class="nav-link">Experiences</button>
-                <button onclick="showPage('achievements')" class="nav-link">Achievements</button>
-                <button onclick="showPage('projects')" class="nav-link">Projects</button>
-                <button onclick="showPage('certifications')" class="nav-link">Certifications</button>
-                <button onclick="showPage('articles')" class="nav-link">Articles</button>
-                <button onclick="showPage('contact')" class="nav-link bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700">Contact</button>
+            <span class="text-xl font-bold text-white tracking-tighter">DIO LUTVI ANDRE <span class="text-blue-500 font-extrabold">PORTFOLIO</span></span>
+            
+            <div class="flex flex-row items-center gap-4 text-[10px] md:text-sm font-medium overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide whitespace-nowrap">
+                <button onclick="showPage('home')" class="nav-link px-2">Home</button>
+                <button onclick="showPage('about')" class="nav-link px-2">About Me</button>
+                <button onclick="showPage('skills')" class="nav-link px-2">Skills</button>
+                <button onclick="showPage('experiences')" class="nav-link px-2">Experiences</button>
+                <button onclick="showPage('achievements')" class="nav-link px-2">Achievements</button>
+                <button onclick="showPage('certifications')" class="nav-link px-2">Certifications</button>
+                <button onclick="showPage('contact')" class="nav-link bg-blue-600 text-white px-4 py-1.5 rounded-full hover:bg-blue-700 transition">Contact</button>
             </div>
         </div>
     </nav>
@@ -50,38 +49,57 @@
             </div>
         </section>
 
-        <section id="about" class="page-content hidden">
-            <h2 class="text-3xl font-bold text-white mb-8">About Me</h2>
-            <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
-                <p class="text-lg leading-relaxed mb-6">
-                    Saya adalah mahasiswa semester 4 di Universitas Ahmad Dahlan dan penerima beasiswa KIPK-M.  Senang belajar hal baru, berorientasi pada detail, serta memiliki aspirasi untuk berkarier di bidang teknologi dan sains.
-                </p>
-                <div class="grid md:grid-cols-2 gap-4 text-sm">
-                    <div class="p-4 bg-[#121212] rounded-lg">
-                        <strong>Email:</strong> 
-                        <a href="mailto:diolutviandre1412@gmail.com" class="text-blue-500 hover:underline">diolutviandre1412@gmail.com</a>
+        <section id="about" class="page-content hidden py-20 px-6">
+                    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-start">
+                        
+                        <div class="flex-1 w-full">
+                            <h2 class="text-6xl font-extrabold text-white mb-4 tracking-tighter uppercase">About Me</h2>
+                            <div class="w-24 border-t-4 border-zinc-700 mb-10"></div>
+                            
+                            <p class="text-lg text-zinc-300 leading-relaxed mb-10 text-justify">
+                                Saya adalah mahasiswa <span class="text-blue-500 font-semibold">Sistem Informasi</span> semester 4 di <span class="text-blue-500 font-semibold">Universitas Ahmad Dahlan</span> dan penerima beasiswa KIPK-M dari Kementerian Pendidikan dan Kebudayaan RI. Senang belajar hal baru, berorientasi pada detail, serta memiliki aspirasi kuat untuk berkontribusi di bidang teknologi dan sains.
+                            </p>
+
+                            <a href="https://bit.ly/cv-dio-lutvi-andre" target="_blank" class="w-full flex items-center justify-center gap-3 bg-zinc-950 border border-zinc-800 text-white font-bold py-4 rounded-xl hover:bg-zinc-900 transition mb-6 shadow-lg">
+                                <i class="fas fa-file-pdf"></i> Download CV
+                            </a>
+
+                            <div class="flex flex-row items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                                <a href="https://instagram.com/_dla99" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
+                                    <i class="fab fa-instagram text-sm"></i> Instagram
+                                </a>
+                                <a href="https://linkedin.com/in/diolutviandre_dla99" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
+                                    <i class="fab fa-linkedin text-sm"></i> LinkedIn
+                                </a>
+                                <a href="https://github.com/diolutviandr3" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
+                                    <i class="fab fa-github text-sm"></i> GitHub
+                                </a>
+                                <a href="mailto:diolutviandre1412@gmail.com" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
+                                    <i class="fas fa-envelope text-sm"></i> Email
+                                </a>
+                                <a href="https://wa.me/62895375174700" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
+                                    <i class="fab fa-whatsapp text-sm"></i> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 grid grid-cols-2 gap-4 w-full">
+                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
+                                <img src="imgabout/about1.png" alt="Kegiatan Dio 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
+                            </div>
+                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
+                                <img src="imgabout/about2.jpg" alt="Kegiatan Dio 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
+                            </div>
+                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
+                                <img src="imgabout/about3.jpg" alt="Kegiatan Dio 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
+                            </div>
+                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
+                                <img src="imgabout/about4.jpg" alt="Kegiatan Dio 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="p-4 bg-[#121212] rounded-lg">
-                        <strong>LinkedIn:</strong> 
-                        <a href="https://linkedin.com/in/diolutviandre_dla99" target="_blank" class="text-blue-500 hover:underline">linkedin.com/in/diolutviandre</a>
-                    </div>
-                    <div class="p-4 bg-[#121212] rounded-lg">
-                        <strong>Instagram:</strong> 
-                        <a href="https://instagram.com/_dla99" target="_blank" class="text-blue-500 hover:underline">instagram.com/_dla99</a>
-                    </div>
-                    <div class="p-4 bg-[#121212] rounded-lg">
-                        <strong>Pendidikan:</strong> Sistem Informasi - UAD
-                    </div>
-                    <div class="p-4 bg-[#121212] rounded-lg">
-                        <strong>Lokasi:</strong> Bantul, DI Yogyakarta
-                    </div>
-                    <div class="p-4 bg-[#121212] rounded-lg">
-                        <strong>Curriculum Vitae:</strong> 
-                        <a href="https://bit.ly/cv-dio-lutvi-andre" target="_blank" class="text-blue-500 hover:underline">bit.ly/cv-dio-lutvi-andre</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
         <section id="skills" class="page-content hidden">
             <h2 class="text-3xl font-bold text-white mb-8 text-center">Technical & Soft Skills</h2>

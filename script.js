@@ -23,6 +23,14 @@ const skills = ["React", "Python", "SQL Database", "Web Design", "UI Design", "S
 
 // Data Pengalaman Dio Lutvi Andre
 const experiences = [
+   { 
+        title: "Protokoler Universitas Ahmad Dahlan", 
+        org: "Bidang Humas dan Protokol Universitas Ahmad Dahlan", 
+        year: "2026", 
+        type: "Internship",
+        imgUrl: "imgexper/foto-bhp-uad.jpg", 
+        credentialUrl: "https://drive.google.com/file/d/1U81GZwLDeFK77qyKF1gM_glmcXBDbMr1/view?usp=drive_link"
+    },
     { 
         title: "Sekretaris II Departemen Pengabdian Masyarakat", 
         org: "PKM-Center Universitas Ahmad Dahlan", 
@@ -46,6 +54,14 @@ const experiences = [
         type: "Pengabdian",
         imgUrl: "imgexper/sertifikat-narasumber-seminar-nasional-akselerasi.jpg", 
         credentialUrl: "https://drive.google.com/file/d/16ugaLkSoRzrh24QbYsBBwwAGY33vvxxa/view?usp=drive_link"
+    },
+    { 
+        title: "Volunteer National Student Leaders on Sustainability Meeting", 
+        org: "Nasional - UI Green Metric dan Universitas Airlangga", 
+        year: "2025", 
+        type: "Pengabdian",
+        imgUrl: "imgexper/sertifikat-nslsm.jpg", 
+        credentialUrl: "https://drive.google.com/file/d/1B6I9RALJTMXs-y_kSQSL-9Whp4VohS0o/view?usp=drive_link"
     },
     { 
         title: "Sahabat Dahlan Muda - P2K FAST", 
@@ -105,18 +121,18 @@ const achievements = [
 
 const certs = [
     { 
-        title: "", 
-        issuer: "", 
-        year: "2025",
-        imgUrl: "imgcertif/.jpg",
-        credentialUrl: ""
-    },
-    { 
         title: "Pengenalan Keamanan Siber", 
         issuer: "Nasional - Cisco Networking Academy & IDCamp", 
         year: "2025",
         imgUrl: "imgcertif/cybersecurity_certificate.jpg",
         credentialUrl: "https://drive.google.com/file/d/1CimmaU1WwAMSj-eu6E7L0Cj5WpAh8uFo/view?usp=drive_link"
+    },
+    { 
+        title: "Pelatihan GIG Economy untuk Gen z di DIY", 
+        issuer: "Nasional - Badan Perencanaan Pembangunan, Riset, dan Inovasi Daerah Daerah Istimewa Yogyakarta", 
+        year: "2025",
+        imgUrl: "imgcertif/pelatihan-gig-economy.jpg",
+        credentialUrl: "https://drive.google.com/file/d/1OM4AhUarHN-C2bCW-Rz9ZbQq9Nqg7UOa/view?usp=drive_link"
     },
     { 
         title: "Pelatihan Essai Ahmad Dahlan International Youth Camp", 
@@ -258,7 +274,7 @@ function renderAll() {
                         <p class="text-sm text-zinc-500">${item.org} • ${item.year}</p>
                         
                         <a href="${item.credentialUrl}" target="_blank" class="inline-block mt-4 text-[11px] font-bold text-blue-500 hover:text-blue-400 transition">
-                            <i class="fas fa-external-link-alt mr-1"></i> Lihat Detail Kredensial
+                            <i class="fas fa-external-link-alt mr-1"></i> Tampilkan Kredensial
                         </a>
                     </div>
 
@@ -273,6 +289,9 @@ function renderAll() {
     const achDiv = document.getElementById('achievement-render');
     if (achDiv) {
         achDiv.innerHTML = ''; 
+        // SETTING RESPONSIVE: 1 Kolom di HP, 2 Kolom di Laptop
+        achDiv.className = "grid grid-cols-1 md:grid-cols-2 gap-6";
+
         achievements.forEach(item => {
             const isInternational = item.level === 'International';
             achDiv.innerHTML += `
@@ -297,9 +316,12 @@ function renderAll() {
     const certDiv = document.getElementById('cert-render');
     if (certDiv) {
         certDiv.innerHTML = ''; 
+        // SETTING RESPONSIVE: 1 Kolom di HP, 2 Kolom di Tablet, 3 Kolom di Laptop
+        certDiv.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
+
         certs.forEach(item => {
             certDiv.innerHTML += `
-                <div class="bg-zinc-900/40 rounded-xl border border-zinc-800 overflow-hidden hover:border-blue-500 transition group mb-4">
+                <div class="bg-zinc-900/40 rounded-xl border border-zinc-800 overflow-hidden hover:border-blue-500 transition group">
                     <div class="h-40 overflow-hidden bg-zinc-800">
                         <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
