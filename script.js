@@ -75,7 +75,7 @@ const experiences = [
         title: "SEO Content Writer & Web Design Intern", 
         org: "PT Dieng Cyber Indonesia", 
         year: "2024", 
-        type: "Magang",
+        type: "Internship",
         imgUrl: "imgexper/sertifikat-magang-pt-diengcyber.jpg", 
         credentialUrl: "https://drive.google.com/file/d/1bXF3pL3aKLHG1C6ELJATeblON9zLRDHt/view?usp=drive_link"
     },
@@ -83,7 +83,7 @@ const experiences = [
         title: "Pembelajaran Industri BOC Indonesia", 
         org: "BOC Indonesia", 
         year: "2023", 
-        type: "Web Development",
+        type: "Internship",
         imgUrl: "imgexper/sertifikat-ki.jpg", 
         credentialUrl: "https://drive.google.com/file/d/1yD6dl-k4NQPCWevG7d8bIkCNsUsi95iO/view?usp=drive_link"
     },
