@@ -355,3 +355,52 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAll();
     showPage('home'); 
 });
+// HANDLING FORM CONTACT (FORMSPREE INTEGRATION)
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Mencegah halaman reload
+        
+        // GANTI 'XQAZZZ' DENGAN ID DARI FORMSPREE KAMU
+        const FORMSPREE_ID = "xreyylrz"; // Pastikan ini ID dari akun Formspree kamu
+        
+        const formData = new FormData(contactForm);
+        
+        // Animasi Loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> Sending...`;
+        formStatus.innerText = "";
+
+        try {
+            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Berhasil
+                formStatus.innerHTML = "✅ Pesan terkirim! Saya akan membalas ke email Anda segera.";
+                formStatus.className = "text-center text-green-500 mt-4";
+                contactForm.reset(); // Kosongkan inputan
+            } else {
+                // Gagal dari Server
+                formStatus.innerHTML = "❌ Gagal mengirim. Coba lagi dalam beberapa saat.";
+                formStatus.className = "text-center text-red-500 mt-4";
+            }
+        } catch (error) {
+            // Kesalahan Koneksi
+            formStatus.innerHTML = "❌ Terjadi kesalahan koneksi internet.";
+            formStatus.className = "text-center text-red-500 mt-4";
+        } finally {
+            // Kembalikan tombol ke kondisi awal
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> Send Message`;
+        }
+    });
+}
