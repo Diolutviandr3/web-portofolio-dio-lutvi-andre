@@ -23,6 +23,14 @@ const skills = ["React", "Python", "SQL Database", "Web Design", "UI Design", "S
 
 // Data Pengalaman Dio Lutvi Andre
 const experiences = [
+    { 
+        title: "Google Student Ambassador", 
+        org: "Team Google Indonesia", 
+        year: "2026", 
+        type: "Ambassador",
+        imgUrl: "imgexper/foto-gsa.png", 
+        credentialUrl: "https://www.instagram.com/p/DWlfhOxEoxh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    },
    { 
         title: "Protokoler Universitas Ahmad Dahlan", 
         org: "Bidang Humas dan Protokol Universitas Ahmad Dahlan", 
@@ -121,130 +129,173 @@ const achievements = [
 
 const certs = [
     { 
+        title: "Gemini Certified Educator", 
+        issuer: "Nasional - Google for Education", 
+        year: "April 2026",
+        imgUrl: "imgcertif/4-google.jpg",
+        credentialUrl: "https://edu.google.accredible.com/a3ebc8f5-e7f7-4cac-b482-a529fdd6495b#acc.R04Ttl9L"
+    },
+    { 
+        title: "Gemini Certified Faculty", 
+        issuer: "Nasional - Google for Education", 
+        year: "April 2026",
+        imgUrl: "imgcertif/3-google.jpg",
+        credentialUrl: "https://edu.google.accredible.com/50464396-e594-439c-95b6-0fe44d83fc01?key=57eb4ede734141197ee0537797e94f32f2e74ff58da768a5bb4e70c595327e34"
+    },
+    { 
+        title: "Gemini Certified University Student ", 
+        issuer: "Nasional - Google for Education", 
+        year: "April 2026",
+        imgUrl: "imgcertif/2-google.jpg",
+        credentialUrl: "https://edu.google.accredible.com/592f7c82-2b45-4469-a948-871de52af3f4#acc.kmTPSctI"
+    },
+    { 
+        title: "Next-Level Google Tools Hacks & Must Have Google Certifications", 
+        issuer: "Nasional - Google for Education and Commissioned by Google Indonesia", 
+        year: "April 2026",
+        imgUrl: "imgcertif/1-google.jpg",
+        credentialUrl: "https://drive.google.com/file/d/1xxU8yAzSrUzoVoflcjAVIp0hQt2un25T/view?usp=drive_link"
+    },
+    { 
         title: "Pengenalan Keamanan Siber", 
         issuer: "Nasional - Cisco Networking Academy & IDCamp", 
-        year: "2025",
+        year: "Maret 2026",
         imgUrl: "imgcertif/cybersecurity_certificate.jpg",
         credentialUrl: "https://drive.google.com/file/d/1CimmaU1WwAMSj-eu6E7L0Cj5WpAh8uFo/view?usp=drive_link"
     },
     { 
         title: "Pelatihan GIG Economy untuk Gen z di DIY", 
         issuer: "Nasional - Badan Perencanaan Pembangunan, Riset, dan Inovasi Daerah Daerah Istimewa Yogyakarta", 
-        year: "2025",
+        year: "Januari 2026",
         imgUrl: "imgcertif/pelatihan-gig-economy.jpg",
         credentialUrl: "https://drive.google.com/file/d/1OM4AhUarHN-C2bCW-Rz9ZbQq9Nqg7UOa/view?usp=drive_link"
     },
     { 
+        title: "Belajar Dasar AI", 
+        issuer: "Nasional - Dicoding Indonesia", 
+        year: "Januari 2026",
+        imgUrl: "imgcertif/sertifikat_course_belajar-dasar-ai.jpg",
+        credentialUrl: "https://www.dicoding.com/certificates/0LZ050853X65" 
+    },
+    { 
         title: "Pelatihan Essai Ahmad Dahlan International Youth Camp", 
         issuer: "International - UAD", 
-        year: "2025",
+        year: "Oktober 2025",
         imgUrl: "imgcertif/sertifikat-pelatihan-esai-adiyc.jpg",
         credentialUrl: "https://drive.google.com/file/d/1qarMRnZsmJkGkO0tAbgjEa20HZEd5ScJ/view?usp=sharing"
     },
     { 
+        title: "Pelatihan Publikasi Ilmiah", 
+        issuer: "Nasional - UAD", 
+        year: "Juli 2025",
+        imgUrl: "imgcertif/sertifikat-pelatihan-publikasi-ilmiah.jpg",
+        credentialUrl: "https://drive.google.com/file/d/1xSTSdcSMIKc1tahBABXCqpOs5dET9E1p/view?usp=sharing" 
+    },
+    { 
         title: "Branding Product By Canva", 
         issuer: "Nasional - UAD", 
-        year: "2025",
+        year: "Mei 2025",
         imgUrl: "imgcertif/sertifikat-branding-product-by-canva.jpg",
         credentialUrl: "https://drive.google.com/file/d/12a4r5CcBA9OPebUXuohhzY2S6W2VibD2/view?usp=drive_link"
     },
     { 
         title: "Training K3 Future Leader Programe TKBT", 
         issuer: "Nasional - Mutiara Mutu Sertifikasi", 
-        year: "2025",
+        year: "April 2025",
         imgUrl: "imgcertif/sertifikat-pelatihan-flp.jpg",
         credentialUrl: "https://drive.google.com/file/d/1wU6EC9Ze5ALyX8b5vdpwoIVOzeqwI9L4/view?usp=sharing"
     },
     { 
-        title: "Belajar Dasar AI", 
-        issuer: "Nasional - Dicoding Indonesia", 
-        year: "2025",
-        imgUrl: "imgcertif/sertifikat_course_belajar-dasar-ai.jpg",
-        credentialUrl: "https://www.dicoding.com/certificates/0LZ050853X65" 
-    },
-    { 
         title: "Business Model Canvas for Beginners", 
         issuer: "Nasional - UAD", 
-        year: "2025",
+        year: "Mei 2025",
         imgUrl: "imgcertif/sertifikat-pelatihan-business-model-canvas.jpg",
         credentialUrl: "https://drive.google.com/file/d/1uDhJ6CMEalUqrS7Se4gIKvsM4q7XHGEs/view?usp=sharing" 
     },
     { 
         title: "Video Kreatif Wirausaha Mahasiswa", 
         issuer: "Nasional - UAD", 
-        year: "2025",
+        year: "Mei 2025",
         imgUrl: "imgcertif/sertifikat-pelatihan-video-kreatif-wirausaha-mahasiswa.jpg",
         credentialUrl: "https://drive.google.com/file/d/1L6xOy3ZFX7fatWIPs6ivS8E0FRIgxXkE/view?usp=sharing" 
     },
     { 
-        title: "Pelatihan Publikasi Ilmiah", 
-        issuer: "Nasional - UAD", 
-        year: "2025",
-        imgUrl: "imgcertif/sertifikat-pelatihan-publikasi-ilmiah.jpg",
-        credentialUrl: "https://drive.google.com/file/d/1xSTSdcSMIKc1tahBABXCqpOs5dET9E1p/view?usp=sharing" 
-    },
-    { 
         title: "Maxy Talks", 
         issuer: "Nasional - Maxy Academy", 
-        year: "2025",
+        year: "April 2025",
         imgUrl: "imgcertif/sertifikat-maxy-talks.png",
         credentialUrl: "https://drive.google.com/file/d/10kDDlg6KJoJtv9s6ph5pT1rC4jRH_DQW/view?usp=drive_link" 
     },
     { 
         title: "Future Entrepreneur Summit", 
         issuer: "Nasional - FESt Management & BEM-KM UMY & BEM-KM FPB UMY", 
-        year: "2024",
+        year: "Desember 2024",
         imgUrl: "imgcertif/certificate-future-entrepreneur-summit.jpg",
         credentialUrl: "https://drive.google.com/file/d/1idCxIJOAKgvFb809la1TVgRVD2S-_gNF/view?usp=sharing" 
     },
     { 
         title: "Training Public Speaking ", 
         issuer: "Nasional - GROW PROJECT & BEM-KM UMY & BEM-KM FPB UMY", 
-        year: "2024",
+        year: "Desember 2024",
         imgUrl: "imgcertif/certificate-training-public-speaking.jpg",
         credentialUrl: "https://drive.google.com/file/d/1iCfAkH3UwUNb5ocQPVh92SBR_Wr7_mfQ/view?usp=sharing" 
     },
     { 
         title: "FEST GOROWORLD ASIA FUTUREPRENEUR SELECTION PROGRAM", 
         issuer: "FESt Goroworld & BEM-KM UMY & BEM-KM FPB UMY", 
-        year: "2024",
+        year: "Desember 2024",
         imgUrl: "imgcertif/certificate-FEST-GOROWORLD-ASIA.jpg",
         credentialUrl: "https://drive.google.com/file/d/11FSKJ_FXQpszRjAM-XxpQrSEWmxg2kvD/view?usp=drive_link" 
     },
     { 
         title: "Training Entrepreneurship", 
         issuer: "FESt Management & BEM-KM UMY & BEM-KM FPB UMY", 
-        year: "2024",
+        year: "Desember 2024",
         imgUrl: "imgcertif/certificate-entrepreneurship.jpg",
         credentialUrl: "https://drive.google.com/file/d/1G1X6gz0y5ZcAe92lOPoUQRgIGAVYmd53/view?usp=drive_link" 
     },
     { 
         title: "International Conference Educations", 
         issuer: "International - BEM FKIP UAD", 
-        year: "2024",
+        year: "November 2024",
         imgUrl: "imgcertif/Sertifikat-ICE.jpg",
         credentialUrl: "https://drive.google.com/file/d/1maYRJjzVdljlKnVoH8T3bOmhWGXhCkNO/view?usp=drive_link" 
     },
         { 
         title: "Motret Dasar", 
         issuer: "Nasional - Kelas Belajar Motret & UAD", 
-        year: "2024",
+        year: "November 2024",
         imgUrl: "imgcertif/sertifikat-kompetisi-motret.jpg",
         credentialUrl: "https://drive.google.com/file/d/1VH4YQvAi2rcUtZ9vULmgAhIPRrKmczHY/view?usp=drive_link" 
     },
         { 
         title: "Uji Kompetensi Keahlian Rekayasa Perangkat Lunak", 
         issuer: "Lokal - SMKN 1 Wadaslintang", 
-        year: "2024",
+        year: "April 2024",
         imgUrl: "imgcertif/sertifikat-ukk.jpg",
         credentialUrl: "https://drive.google.com/file/d/1okRc8GTp4Y2-W3JceAwSKclNQ27Hfv-a/view?usp=drive_link" 
     }
 ];
 
 const articles = [
-    { title: "Juara 3 Presenter Terbaik (Teknologi)", event: "Kompetisi Artikel Ilmiah Nasional", year: "2025" },
-    { title: "Harapan 1 Artikel Terbaik", event: "Kompetisi Artikel Ilmiah Nasional", year: "2025" },
-    { title: "Karya Tulis Ilmiah Al-Qur'an", event: "Seleksi Internal MTQMN UAD", year: "2025" }
+    { 
+        title: "Juara 3 Presenter Terbaik (Teknologi)", 
+        event: "Kompetisi Artikel Ilmiah Nasional", 
+        year: "2025",
+        link: "https://example.com/artikel1"  // Ganti dengan URL berita sebenarnya
+    },
+    { 
+        title: "Harapan 1 Artikel Terbaik", 
+        event: "Kompetisi Artikel Ilmiah Nasional", 
+        year: "2025",
+        link: "https://example.com/artikel2"
+    },
+    { 
+        title: "Karya Tulis Ilmiah Al-Qur'an", 
+        event: "Seleksi Internal MTQMN UAD", 
+        year: "2025",
+        link: "https://example.com/artikel3"
+    }
 ];
 
 // FUNGSI RENDER DATA
@@ -345,9 +396,12 @@ function renderAll() {
                 <div class="border-l-4 border-blue-600 pl-6 py-3 bg-zinc-900/20 rounded-r-xl mb-4">
                     <h4 class="font-bold text-white">${item.title}</h4>
                     <p class="text-sm text-zinc-500 italic">${item.event} • ${item.year}</p>
+                    <a href="${item.link}" target="_blank" class="inline-block mt-3 text-[11px] font-bold text-blue-500 hover:text-blue-400 transition">
+                        <i class="fas fa-external-link-alt mr-1"></i> Lihat Berita
+                    </a>
                 </div>`;
         });
-    }
+    }  
 }
 
 // HANYA ADA SATU EVENT LISTENER DI SINI
