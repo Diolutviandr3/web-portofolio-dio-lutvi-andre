@@ -279,22 +279,58 @@ const certs = [
 
 const articles = [
     { 
-        title: "Juara 3 Presenter Terbaik (Teknologi)", 
-        event: "Kompetisi Artikel Ilmiah Nasional", 
-        year: "2025",
-        link: "https://example.com/artikel1"  // Ganti dengan URL berita sebenarnya
+        title: "Terpilih menjadi Google Student Ambassador", 
+        event: "Google Student Ambassador Program",
+        year: "2026",
+        link: "https://lldikti5.kemdiktisaintek.go.id/home/detailpost/mahasiswa-uad-tembus-gsa-2026"
     },
     { 
-        title: "Harapan 1 Artikel Terbaik", 
-        event: "Kompetisi Artikel Ilmiah Nasional", 
+        title: "1st Presenter", 
+        event: "Ahmad Dahlan International Youth Camp #3", 
         year: "2025",
-        link: "https://example.com/artikel2"
+        link: "https://news.uad.ac.id/mahasiswa-uad-borong-penghargaan-di-kompetisi-nasional-hingga-internasional/"
     },
     { 
-        title: "Karya Tulis Ilmiah Al-Qur'an", 
-        event: "Seleksi Internal MTQMN UAD", 
+        title: "Rank 2 Best Use of Data/Reference", 
+        event: "Ahmad Dahlan International Youth Camp #3", 
         year: "2025",
-        link: "https://example.com/artikel3"
+        link: "https://kumparan.com/universitas-ahmad-dahlan/mahasiswa-uad-ukir-prestasi-di-kancah-nasional-dan-global-27J3oLbStf9"
+    },
+    { 
+        title: "3rd Winner Essay", 
+        event: "Ahmad Dahlan International Seminar #3", 
+        year: "2025",
+        link: "https://lldikti5.kemdiktisaintek.go.id/home/detailpost/mahasiswa-uad-sabet-beragam-penghargaan-nasional-dan-internasional"
+    },
+    { 
+        title: "Honorable Mention 1st Presenter", 
+        event: "Ahmad Dahlan International Seminar #3", 
+        year: "2025",
+        link: "https://www.kompasiana.com/universitasahmaddahlan/69f2cfc8c925c411bb2ec642/mahasiswa-uad-borong-prestasi-nasional-hingga-internasional"
+    },
+    { 
+        title: "Juara Output Essay Nasional", 
+        event: "Witing Contest Family of Mahasiswa KIP-K UNY", 
+        year: "2025",
+        link: "https://news.uad.ac.id/mahasiswa-uad-borong-penghargaan-di-kompetisi-nasional-hingga-internasional/"
+    },
+    { 
+        title: "Delegasi dan Finalis", 
+        event: "The 5th National Student Leaders on Sustainability Meeting oleh UI GreenMetric dan Universitas Airlangga", 
+        year: "2025",
+        link: "https://www.instagram.com/p/DPG1Rc8ku0H/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    },
+    { 
+        title: "2nd Winner Presenter", 
+        event: "Ahmad Dahlan Youth Camp #2", 
+        year: "2024",
+        link: "https://lldikti5.kemdiktisaintek.go.id/home/detailpost/pengumuman-best-article-dan-best-presenter-adyc-2024"
+    },
+    { 
+        title: "3rd Winner Article", 
+        event: "Ahmad Dahlan Youth Camp #2", 
+        year: "2024",
+        link: "https://lldikti5.kemdiktisaintek.go.id/home/detailpost/pengumuman-best-article-dan-best-presenter-adyc-2024"
     }
 ];
 
