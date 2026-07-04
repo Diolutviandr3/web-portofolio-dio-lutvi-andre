@@ -4,179 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dio Lutvi Andre | Digital Portfolio</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        zinc: {
+                            850: '#202024',
+                            950: '#09090b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#121212] text-zinc-300 font-sans">
+<body class="bg-zinc-950 text-zinc-300 font-sans selection:bg-blue-500/20 selection:text-blue-400">
 
-    <nav class="fixed w-full z-50 bg-[#121212]/90 backdrop-blur-md border-b border-zinc-800 px-4 py-4">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <span class="text-xl font-bold text-white tracking-tighter">DIO LUTVI ANDRE <span class="text-blue-500 font-extrabold">PORTOFOLIO</span></span                                                                                                                                                                                                                                                                                                  >
+    <!-- Glowing Background Mesh -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-blue-600/10 blur-[130px] opacity-70"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-violet-600/10 blur-[130px] opacity-70"></div>
+        <div class="absolute top-[30%] left-[50%] -translate-x-1/2 w-[40%] h-[40%] rounded-full bg-indigo-500/5 blur-[150px] opacity-50"></div>
+    </div>
+
+    <!-- Header Navigation (Desktop & Mobile) -->
+    <nav class="fixed w-full top-0 left-0 z-50 glass-nav px-6 py-4 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span onclick="showPage('home')" class="text-xl font-bold tracking-tighter text-white cursor-pointer select-none">
+                DIO LUTVI ANDRE <span class="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent font-extrabold">PORTOFOLIO</span>
+            </span>
             
-            <div class="flex flex-row items-center gap-4 text-[10px] md:text-sm font-medium overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide whitespace-nowrap">
-                <button onclick="showPage('home')" class="nav-link px-2">Home</button>
-                <button onclick="showPage('about')" class="nav-link px-2">About Me</button>
-                <button onclick="showPage('skills')" class="nav-link px-2">Skills</button>
-                <button onclick="showPage('experiences')" class="nav-link px-2">Experiences</button>
-                <button onclick="showPage('achievements')" class="nav-link px-2">Achievements</button>
-                <button onclick="showPage('certifications')" class="nav-link px-2">Certifications</button>
-                <button onclick="showPage('articles')" class="nav-link px-2">Articles</button>
-                <button onclick="showPage('contact')" class="nav-link bg-blue-600 text-white px-4 py-1.5 rounded-full hover:bg-blue-700 transition">Contact</button>
+            <!-- Desktop Nav Menu -->
+            <div class="hidden md:flex flex-row items-center gap-6 text-sm font-medium">
+                <button onclick="showPage('home')" class="nav-link">Home</button>
+                <button onclick="showPage('about')" class="nav-link">About Me</button>
+                <button onclick="showPage('skills')" class="nav-link">Skills</button>
+                <button onclick="showPage('experiences')" class="nav-link">Experiences</button>
+                <button onclick="showPage('achievements')" class="nav-link">Achievements</button>
+                <button onclick="showPage('projects')" class="nav-link">Projects</button>
+                <button onclick="showPage('certifications')" class="nav-link">Certifications</button>
+                <button onclick="showPage('articles')" class="nav-link">Articles</button>
+                <button onclick="showPage('contact')" class="nav-link bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-full hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:scale-[1.03] active:scale-[0.98] border border-white/10 hover:border-white/20">Contact</button>
             </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button id="burger-icon" onclick="toggleMobileMenu()" class="md:hidden text-zinc-400 hover:text-white p-2 rounded-xl hover:bg-zinc-900/60 border border-zinc-800/50 transition-colors">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-4 right-4 bg-zinc-950/95 backdrop-blur-lg border border-zinc-800 rounded-2xl p-6 flex flex-col gap-4 shadow-2xl transition-all duration-300 opacity-0 -translate-y-4 z-40">
+            <button onclick="showPage('home')" class="nav-link text-left py-2 border-b border-zinc-900">Home</button>
+            <button onclick="showPage('about')" class="nav-link text-left py-2 border-b border-zinc-900">About Me</button>
+            <button onclick="showPage('skills')" class="nav-link text-left py-2 border-b border-zinc-900">Skills</button>
+            <button onclick="showPage('experiences')" class="nav-link text-left py-2 border-b border-zinc-900">Experiences</button>
+            <button onclick="showPage('achievements')" class="nav-link text-left py-2 border-b border-zinc-900">Achievements</button>
+            <button onclick="showPage('projects')" class="nav-link text-left py-2 border-b border-zinc-900">Projects</button>
+            <button onclick="showPage('certifications')" class="nav-link text-left py-2 border-b border-zinc-900">Certifications</button>
+            <button onclick="showPage('articles')" class="nav-link text-left py-2 border-b border-zinc-900">Articles</button>
+            <button onclick="showPage('contact')" class="w-full text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/20 transition-all mt-2">Contact</button>
         </div>
     </nav>
 
-    <main class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+    <!-- Main Content Container -->
+    <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
         
-        <section id="home" class="page-content flex flex-col items-center text-center">
-            <div class="mb-6 relative">
-                <div class="w-40 h-40 rounded-full border-4 border-blue-500 overflow-hidden shadow-2xl shadow-blue-500/20">
-                    <img src="foto-profil-dio.jpg" alt="Dio Lutvi Andre" class="w-full h-full object-cover">
+        <!-- HOME SECTION -->
+        <section id="home" class="page-content hidden flex flex-col items-center text-center">
+            <div class="mb-8 relative reveal delay-100 group tilt-element">
+                <!-- Double glowing ring behind image -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 blur-xl opacity-35 group-hover:opacity-55 transition-all duration-500"></div>
+                <div class="relative w-44 h-44 rounded-full border-[3px] border-zinc-800/80 p-1 bg-zinc-950 overflow-hidden shadow-2xl">
+                    <img src="foto-profil-dio.jpg" alt="Dio Lutvi Andre" class="w-full h-full rounded-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4">Dio Lutvi Andre</h1>
-            <p class="text-lg text-zinc-400">Sistem Informasi - Universitas Ahmad Dahlan</p>
             
-            <button onclick="showPage('about')" class="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition shadow-lg shadow-blue-500/20">
-                Explore Now
-            </button>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-4 reveal delay-150">
+                Dio Lutvi Andre
+            </h1>
+            
+            <!-- Typewriter Animated Text -->
+            <p class="text-lg md:text-xl text-zinc-400 font-medium min-h-[30px] mb-8 reveal delay-200">
+                Sistem Informasi - <span id="typing-text" class="text-blue-500 font-semibold typing-cursor"></span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-center reveal delay-250">
+                <button onclick="showPage('about')" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                    Explore About Me <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+                <button onclick="showPage('contact')" class="w-full sm:w-auto bg-zinc-900 border border-zinc-850 hover:bg-zinc-850 text-white px-8 py-3.5 rounded-xl font-bold transition hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                    Let's Collaborate <i class="far fa-envelope text-sm"></i>
+                </button>
+            </div>
 
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-zinc-800 pt-10 w-full max-w-4xl">
-                <div><h3 class="text-3xl font-bold text-white">20+</h3><p class="text-xs text-zinc-500 uppercase">Certifications</p></div>
-                <div><h3 class="text-3xl font-bold text-white">10+</h3><p class="text-xs text-zinc-500 uppercase">Projects Handled</p></div>
-                <div><h3 class="text-3xl font-bold text-white">2+</h3><p class="text-xs text-zinc-500 uppercase">Years Experience</p></div>
-                <div><h3 class="text-3xl font-bold text-white">15+</h3><p class="text-xs text-zinc-500 uppercase">Achievements</p></div>
+            <!-- Stats Counter Grid -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-zinc-900 w-full max-w-4xl reveal delay-300">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 id="counter-certs" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Certifications</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 id="counter-projects" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Projects Handled</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 id="counter-years" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Years Experience</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 id="counter-achievements" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Achievements</p>
+                </div>
             </div>
         </section>
 
-        <section id="about" class="page-content hidden py-20 px-6">
-                    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-start">
-                        
-                        <div class="flex-1 w-full">
-                            <h2 class="text-6xl font-extrabold text-white mb-4 tracking-tighter uppercase">About Me</h2>
-                            <div class="w-24 border-t-4 border-zinc-700 mb-10"></div>
-                            
-                            <p class="text-lg text-zinc-300 leading-relaxed mb-10 text-justify">
-                                Saya adalah mahasiswa <span class="text-blue-500 font-semibold">Sistem Informasi</span> semester 4 di <span class="text-blue-500 font-semibold">Universitas Ahmad Dahlan</span> dan penerima beasiswa Pendidikan dari Kementerian Pendidikan Tinggi, Sains, dan Teknologi. Saya senang belajar hal baru, berorientasi pada detail, serta memiliki aspirasi kuat untuk berkontribusi di bidang teknologi dan sains.
-                            </p>
+        <!-- ABOUT SECTION -->
+        <section id="about" class="page-content hidden py-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+                <!-- About Texts -->
+                <div class="flex-1 w-full reveal delay-75">
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tighter uppercase">
+                        About Me
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-10"></div>
+                    
+                    <p class="text-lg text-zinc-300 leading-relaxed mb-10 text-justify">
+                        Saya adalah mahasiswa <span class="text-blue-500 font-semibold">Sistem Informasi</span> semester 4 di <span class="text-blue-500 font-semibold">Universitas Ahmad Dahlan</span> dan penerima beasiswa Pendidikan dari Kementerian Pendidikan Tinggi, Sains, dan Teknologi. Saya senang belajar hal baru, berorientasi pada detail, serta memiliki aspirasi kuat untuk berkontribusi di bidang teknologi dan sains.
+                    </p>
 
-                            <a href="https://drive.google.com/drive/folders/1zJe4uiqLu4DiKSqGwNRIdz-rkwmCS_5v?usp=drive_link" target="_blank" class="w-full flex items-center justify-center gap-3 bg-zinc-950 border border-zinc-800 text-white font-bold py-4 rounded-xl hover:bg-zinc-900 transition mb-6 shadow-lg">
-                                <i class="fas fa-file-pdf"></i> Download CV
-                            </a>
-
-                            <div class="flex flex-row items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                                <a href="https://instagram.com/_dla99" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
-                                    <i class="fab fa-instagram text-sm"></i> Instagram
-                                </a>
-                                <a href="https://linkedin.com/in/diolutviandre_dla99" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
-                                    <i class="fab fa-linkedin text-sm"></i> LinkedIn
-                                </a>
-                                <a href="https://github.com/diolutviandr3" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
-                                    <i class="fab fa-github text-sm"></i> GitHub
-                                </a>
-                                <a href="mailto:diolutviandre1412@gmail.com" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
-                                    <i class="fas fa-envelope text-sm"></i> Email
-                                </a>
-                                <a href="https://wa.me/62895375174700" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800 px-4 py-2 rounded-full text-zinc-400 hover:text-white hover:border-blue-500 hover:bg-blue-600/10 transition text-[11px] font-medium whitespace-nowrap">
-                                    <i class="fab fa-whatsapp text-sm"></i> WhatsApp
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="flex-1 grid grid-cols-2 gap-4 w-full">
-                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
-                                <img src="imgabout/about1.png" alt="Kegiatan Dio 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
-                            </div>
-                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
-                                <img src="imgabout/about2.jpg" alt="Kegiatan Dio 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
-                            </div>
-                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
-                                <img src="imgabout/about3.jpg" alt="Kegiatan Dio 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
-                            </div>
-                            <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 group shadow-2xl">
-                                <img src="imgabout/about4.jpeg" alt="Kegiatan Dio 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90">
-                            </div>
-                        </div>
-
+                    <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                        <a href="https://drive.google.com/drive/folders/1zJe4uiqLu4DiKSqGwNRIdz-rkwmCS_5v?usp=drive_link" target="_blank" class="flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                            <i class="fas fa-file-pdf"></i> Download CV
+                        </a>
+                        <a href="#contact" onclick="showPage('contact')" class="flex items-center justify-center gap-3 bg-zinc-900 border border-zinc-850 text-white font-bold py-4 rounded-xl hover:bg-zinc-850 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                            <i class="fas fa-envelope"></i> Hubungi Saya
+                        </a>
                     </div>
-                </section>
 
-        <section id="skills" class="page-content hidden">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Technical & Soft Skills</h2>
-            <div id="skills-render" class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto"></div>
-        </section>
-
-        <section id="experiences" class="page-content">
-            <h2 class="text-3xl font-bold text-white mb-8">Experiences</h2>
-            <div id="experience-render" class="grid gap-6"></div>
-        </section>
-        <section id="achievements" class="page-content hidden">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Top Achievements</h2>
-            <div id="achievement-render" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-        </section>
-
-        <section id="projects" class="page-content hidden">
-            <h2 class="text-3xl font-bold text-white mb-8">Technical Projects</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 hover:border-blue-500 transition">
-                    <h3 class="text-xl font-bold text-white">NUSA Project</h3>
-                    <p class="text-sm text-zinc-500 mt-2">Pengembangan logo dan identitas visual untuk brand Nusantara.</p>
+                    <!-- Social Icons Grid -->
+                    <div class="flex flex-wrap items-center gap-3">
+                        <a href="https://instagram.com/_dla99" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-850 px-4 py-2.5 rounded-full text-zinc-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-600/5 transition text-[11px] font-medium whitespace-nowrap">
+                            <i class="fab fa-instagram text-sm"></i> Instagram
+                        </a>
+                        <a href="https://linkedin.com/in/diolutviandre_dla99" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-850 px-4 py-2.5 rounded-full text-zinc-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-600/5 transition text-[11px] font-medium whitespace-nowrap">
+                            <i class="fab fa-linkedin text-sm"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/diolutviandr3" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-850 px-4 py-2.5 rounded-full text-zinc-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-600/5 transition text-[11px] font-medium whitespace-nowrap">
+                            <i class="fab fa-github text-sm"></i> GitHub
+                        </a>
+                        <a href="mailto:diolutviandre1412@gmail.com" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-850 px-4 py-2.5 rounded-full text-zinc-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-600/5 transition text-[11px] font-medium whitespace-nowrap">
+                            <i class="fas fa-envelope text-sm"></i> Email
+                        </a>
+                        <a href="https://wa.me/62895375174700" target="_blank" class="flex items-center gap-2 bg-zinc-900/60 border border-zinc-850 px-4 py-2.5 rounded-full text-zinc-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-600/5 transition text-[11px] font-medium whitespace-nowrap">
+                            <i class="fab fa-whatsapp text-sm"></i> WhatsApp
+                        </a>
+                    </div>
                 </div>
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 hover:border-blue-500 transition">
-                    <h3 class="text-xl font-bold text-white">Food Business Innovation</h3>
-                    <p class="text-sm text-zinc-500 mt-2">Proyek inkubasi bisnis inovasi produk pangan berbasis Talas Pratama.</p>
+
+                <!-- About Activities Grid -->
+                <div class="flex-1 grid grid-cols-2 gap-4 w-full reveal delay-150">
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-850 bg-zinc-900 group shadow-lg relative">
+                        <img src="imgabout/about1.png" alt="Kegiatan Dio 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-90">
+                    </div>
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-850 bg-zinc-900 group shadow-lg relative">
+                        <img src="imgabout/about2.jpg" alt="Kegiatan Dio 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-90">
+                    </div>
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-850 bg-zinc-900 group shadow-lg relative">
+                        <img src="imgabout/about3.jpg" alt="Kegiatan Dio 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-90">
+                    </div>
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-zinc-850 bg-zinc-900 group shadow-lg relative">
+                        <img src="imgabout/about4.jpeg" alt="Kegiatan Dio 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-90">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="certifications" class="page-content hidden">
-            <h2 class="text-3xl font-bold text-white mb-8">Professional Certifications</h2>
-            <div id="cert-render" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="page-content hidden py-10">
+            <h2 class="text-4xl font-extrabold text-white mb-2 text-center reveal delay-75">Technical & Soft Skills</h2>
+            <p class="text-sm text-zinc-500 text-center mb-10 max-w-xl mx-auto reveal delay-100">Kumpulan keahlian teknis dan kemampuan interpersonal yang saya miliki dan terapkan dalam pengembangan karir serta akademik.</p>
+            <div id="skills-render" class="flex flex-wrap justify-center gap-3.5 max-w-3xl mx-auto"></div>
         </section>
 
-        <section id="articles" class="page-content hidden">
-            <h2 class="text-3xl font-bold text-white mb-8">Scientific Articles</h2>
+        <!-- EXPERIENCES SECTION -->
+        <section id="experiences" class="page-content hidden py-10">
+            <h2 class="text-4xl font-extrabold text-white mb-2 reveal delay-75">Work & Organizational Experiences</h2>
+            <p class="text-sm text-zinc-500 mb-12 max-w-xl reveal delay-100">Perjalanan karir profesional, magang, volunteer, serta kontribusi organisasi kepemimpinan saya.</p>
+            <div id="experience-render"></div>
+        </section>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <section id="achievements" class="page-content hidden py-10">
+            <h2 class="text-4xl font-extrabold text-white mb-2 text-center reveal delay-75">Top Academic & Non-Academic Achievements</h2>
+            <p class="text-sm text-zinc-500 text-center mb-12 max-w-xl mx-auto reveal delay-100">Daftar penghargaan terbaik yang telah saya capai di tingkat regional, nasional, hingga internasional.</p>
+            <div id="achievement-render"></div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="page-content hidden py-10">
+            <h2 class="text-4xl font-extrabold text-white mb-2 reveal delay-75">Technical & Creative Projects</h2>
+            <p class="text-sm text-zinc-500 mb-12 max-w-xl reveal delay-100">Kumpulan proyek inovasi dan karya visual digital yang telah saya tangani.</p>
+            <div id="project-render" class="grid md:grid-cols-2 gap-6"></div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications" class="page-content hidden py-10">
+            <h2 class="text-4xl font-extrabold text-white mb-2 text-center reveal delay-75">Professional Certifications</h2>
+            <p class="text-sm text-zinc-500 text-center mb-10 max-w-xl mx-auto reveal delay-100">Sertifikasi profesional dari instansi global dan nasional untuk memvalidasi keahlian di bidang teknologi dan edukasi.</p>
+            
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-12 max-w-2xl mx-auto reveal delay-100">
+                <button onclick="setCertFilter('Semua')" class="cert-filter-btn px-5 py-2.5 rounded-xl border text-xs font-semibold bg-blue-600 text-white border-blue-600 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm shadow-blue-500/10">Semua</button>
+                <button onclick="setCertFilter('Internasional')" class="cert-filter-btn px-5 py-2.5 rounded-xl border text-xs font-semibold bg-zinc-900 text-zinc-400 border-zinc-800/80 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">Internasional</button>
+                <button onclick="setCertFilter('Nasional')" class="cert-filter-btn px-5 py-2.5 rounded-xl border text-xs font-semibold bg-zinc-900 text-zinc-400 border-zinc-800/80 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">Nasional</button>
+                <button onclick="setCertFilter('Lokal')" class="cert-filter-btn px-5 py-2.5 rounded-xl border text-xs font-semibold bg-zinc-900 text-zinc-400 border-zinc-800/80 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">Lokal</button>
+            </div>
+            
+            <div id="cert-render"></div>
+        </section>
+
+        <!-- ARTICLES SECTION -->
+        <section id="articles" class="page-content hidden py-10">
+            <h2 class="text-4xl font-extrabold text-white mb-2 reveal delay-75">Scientific Articles & Press Releases</h2>
+            <p class="text-sm text-zinc-500 mb-12 max-w-xl reveal delay-100">Kumpulan publikasi ilmiah serta berita pers terkait kontribusi prestasi yang dirilis di media publikasi.</p>
             <div id="article-render" class="grid gap-6"></div>
         </section>
 
-        <section id="contact" class="page-content hidden py-20">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center uppercase tracking-widest">Get In Touch</h2>
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="page-content hidden py-10">
+            <h2 class="text-4xl font-extrabold text-white mb-2 text-center reveal delay-75">Get In Touch</h2>
+            <p class="text-sm text-zinc-500 text-center mb-12 max-w-xl mx-auto reveal delay-100">Punya ide proyek menarik atau peluang kolaborasi? Mari diskusikan bersama melalui form di bawah ini.</p>
             
-            <form id="contact-form" class="max-w-2xl mx-auto bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 space-y-6 shadow-2xl">
+            <form id="contact-form" class="max-w-2xl mx-auto bg-zinc-900/30 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-zinc-850 space-y-6 shadow-2xl reveal delay-150">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="space-y-2">
-                        <label class="text-xs font-bold text-zinc-500 uppercase ml-1">Full Name</label>
-                        <input type="text" name="name" required placeholder="example: Dio Lutvi Andre" 
-                            class="w-full bg-[#121212] border border-zinc-800 rounded-xl p-4 outline-none focus:border-blue-500 transition text-white text-sm">
+                        <label class="text-xs font-bold text-zinc-400 uppercase ml-1">Full Name</label>
+                        <input type="text" name="name" required placeholder="Contoh: Dio Lutvi Andre" 
+                            class="w-full bg-zinc-950 border border-zinc-850 rounded-xl p-4 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 transition-all text-white text-sm">
                     </div>
                     <div class="space-y-2">
-                        <label class="text-xs font-bold text-zinc-500 uppercase ml-1">Email Address</label>
-                        <input type="email" name="email" required placeholder="example: dio@example.com" 
-                            class="w-full bg-[#121212] border border-zinc-800 rounded-xl p-4 outline-none focus:border-blue-500 transition text-white text-sm">
+                        <label class="text-xs font-bold text-zinc-400 uppercase ml-1">Email Address</label>
+                        <input type="email" name="email" required placeholder="Contoh: dio@example.com" 
+                            class="w-full bg-zinc-950 border border-zinc-850 rounded-xl p-4 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 transition-all text-white text-sm">
                     </div>
                 </div>
                 
                 <div class="space-y-2">
-                    <label class="text-xs font-bold text-zinc-500 uppercase ml-1">Your Message</label>
-                    <textarea name="message" required rows="5" placeholder="Halo Dio, saya ingin berkolaborasi mengenai..." 
-                        class="w-full bg-[#121212] border border-zinc-800 rounded-xl p-4 outline-none focus:border-blue-500 transition text-white text-sm"></textarea>
+                    <label class="text-xs font-bold text-zinc-400 uppercase ml-1">Your Message</label>
+                    <textarea name="message" required rows="5" placeholder="Halo Dio, saya tertarik dengan portofolio Anda dan ingin mendiskusikan..." 
+                        class="w-full bg-zinc-950 border border-zinc-850 rounded-xl p-4 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 transition-all text-white text-sm"></textarea>
                 </div>
                 
-                <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/10 hover:shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
                 
-                <p id="form-status" class="text-center text-sm font-medium transition-all"></p>
+                <div id="form-status" class="text-center text-sm font-medium transition-all"></div>
             </form>
         </section>
 
     </main>
 
-    <footer class="py-10 text-center text-zinc-600 text-xs border-t border-zinc-900">
-        <p>© 2026 Dio Lutvi Andre. Built with Passion & Technology.</p>
+    <!-- Footer -->
+    <footer class="py-12 text-center text-zinc-500 text-xs border-t border-zinc-900 bg-zinc-950/60 backdrop-blur-sm">
+        <p class="mb-2">© 2026 Dio Lutvi Andre. Built with Passion & Modern Technology.</p>
+        <p class="text-[10px] text-zinc-600">Universitas Ahmad Dahlan • Sistem Informasi</p>
     </footer>
 
+    <!-- Main Script -->
     <script src="script.js"></script>
 </body>
 </html>
