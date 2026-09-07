@@ -290,6 +290,13 @@ const achievements = [
 // Data Sertifikasi Profesional
 const certs = [
     { 
+        title: "Preliminary Samsung Solve for Tomorrow 2026", 
+        issuer: "Nasional - Samsung Electronics Indonesia", 
+        year: "Juli 2026",
+        imgUrl: "imgcertif/samsung-solve-for-tomorrow.jpg",
+        credentialUrl: "https://drive.google.com/file/d/1t2L1XIrXXMzkS3Q62gjTwZkXrN8BAGEg/view?usp=drive_link"
+    },
+    { 
         title: "Gemini Certified Educator", 
         issuer: "Nasional - Google for Education", 
         year: "April 2026",
