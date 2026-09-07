@@ -96,7 +96,8 @@ const experiences = [
         year: "2026", 
         type: "Ambassador",
         imgUrl: "imgexper/foto-gsa.png", 
-        credentialUrl: "https://www.instagram.com/p/DWlfhOxEoxh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        credentialUrl: "https://drive.google.com/file/d/1sH8AAdq1cscdEhBTzeONzPD9l9IKNUKd/view?usp=drive_link",
+        postUrl: "https://www.instagram.com/p/DWlfhOxEoxh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
     },
     { 
         title: "Protokoler Universitas Ahmad Dahlan", 
@@ -666,9 +667,15 @@ function renderAll() {
                                 <i class="far fa-calendar-alt"></i> Periode: ${item.year}
                             </p>
                             
-                            <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-2 mt-5 text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-1">
-                                <i class="fas fa-link text-[10px]"></i> Tampilkan Bukti Kredensial
-                            </a>
+                            <div class="flex flex-wrap items-center gap-4 mt-5">
+                                <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-1">
+                                    <i class="fas fa-certificate text-[10px]"></i> Tampilkan Bukti Kredensial
+                                </a>
+                                ${item.postUrl ? `
+                                <a href="${item.postUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition-all hover:translate-x-1">
+                                    <i class="fab fa-instagram text-[11px] text-pink-500"></i> Lihat Publikasi
+                                </a>` : ''}
+                            </div>
                         </div>
 
                         <div class="w-full lg:w-60 h-40 rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800/80 shadow-md order-1 lg:order-2 self-stretch lg:self-auto flex-shrink-0 relative group">
