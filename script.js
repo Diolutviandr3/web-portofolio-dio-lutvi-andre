@@ -868,36 +868,41 @@ function renderAll() {
     }
 }
 
-// ANIMASI ROLL-UP ANGKA DI HERO STATS
+// ANIMASI ROLL-UP ANGKA DI HERO STATS (OTOMATIS DIHITUNG DARI DATA ARRAY)
 function animateCounters() {
     const statsGrid = document.querySelector('#home .grid');
     if (!statsGrid) return;
     
-    // Set target numbers based on original values
+    // Set target numbers secara dinamis berdasarkan jumlah item dari masing-masing halaman
     const counters = [
-        { id: 'counter-certs', target: 20, suffix: '+' },
-        { id: 'counter-projects', target: 10, suffix: '+' },
-        { id: 'counter-years', target: 2, suffix: '+' },
-        { id: 'counter-achievements', target: 15, suffix: '+' }
+        { id: 'counter-certs', target: certs.length, suffix: '+' },
+        { id: 'counter-projects', target: projects.length, suffix: '+' },
+        { id: 'counter-years', target: experiences.length, suffix: '+' },
+        { id: 'counter-achievements', target: achievements.length, suffix: '+' }
     ];
 
     counters.forEach(c => {
         const el = document.getElementById(c.id);
         if (!el) return;
         
+        // Jika sudah pernah dianimasikan, pastikan angka tetap sinkron dengan target terbaru
+        if (el.dataset.animated === 'true') {
+            el.innerText = `${c.target}${c.suffix}`;
+            return;
+        }
+
+        if (c.target <= 0) {
+            el.innerText = `0${c.suffix}`;
+            el.dataset.animated = 'true';
+            return;
+        }
+
         let current = 0;
         const duration = 1200; // ms
         const steps = c.target;
         const stepTime = Math.max(Math.floor(duration / steps), 20);
         
         el.innerText = `0${c.suffix}`;
-        
-        // Cek apakah angka sudah dianimasikan
-        if (el.dataset.animated === 'true') {
-            el.innerText = `${c.target}${c.suffix}`;
-            return;
-        }
-        
         el.dataset.animated = 'true';
         
         const timer = setInterval(() => {
