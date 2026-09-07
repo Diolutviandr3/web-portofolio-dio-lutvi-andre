@@ -1,11 +1,30 @@
-// FUNGSI NAVIGASI YANG DISEMPURNAKAN DENGAN ANIMASI TRANSISI
-function showPage(pageId) {
+// DAFTAR HALAMAN VALID & JUDUL DOKUMEN UNTUK SPA
+const validPages = ['home', 'about', 'skills', 'experiences', 'achievements', 'projects', 'certifications', 'articles', 'contact'];
+
+const pageTitles = {
+    home: "Dio Lutvi Andre | Digital Portfolio",
+    about: "About Me | Dio Lutvi Andre",
+    skills: "Skills | Dio Lutvi Andre",
+    experiences: "Experiences | Dio Lutvi Andre",
+    achievements: "Achievements | Dio Lutvi Andre",
+    projects: "Projects | Dio Lutvi Andre",
+    certifications: "Certifications | Dio Lutvi Andre",
+    articles: "Articles & Media | Dio Lutvi Andre",
+    contact: "Contact | Dio Lutvi Andre"
+};
+
+// FUNGSI NAVIGASI YANG DISEMPURNAKAN DENGAN ANIMASI TRANSISI & URL HASH
+function showPage(pageId, updateHash = true) {
+    if (!validPages.includes(pageId)) {
+        pageId = 'home';
+    }
+
     const activePage = document.querySelector('.page-content.page-visible');
     const targetPage = document.getElementById(pageId);
     
     if (!targetPage) return;
     
-    // Update active class on nav links (desktop)
+    // Update active class on nav links (desktop & mobile)
     const links = document.querySelectorAll('.nav-link');
     links.forEach(link => {
         link.classList.remove('nav-active');
@@ -16,6 +35,19 @@ function showPage(pageId) {
 
     // Close mobile drawer menu if open
     closeMobileMenu();
+
+    // Update document title secara dinamis
+    if (pageTitles[pageId]) {
+        document.title = pageTitles[pageId];
+    }
+
+    // Update URL hash di address bar tanpa merusak history
+    if (updateHash) {
+        const currentHash = window.location.hash.replace('#', '');
+        if (currentHash !== pageId) {
+            history.pushState(null, '', `#${pageId}`);
+        }
+    }
 
     if (activePage) {
         if (activePage === targetPage) return;
@@ -618,7 +650,7 @@ function renderCertifications() {
             <div class="glass-card tilt-element rounded-xl sm:rounded-2xl overflow-hidden group flex flex-col justify-between reveal delay-${(index % 3) * 100}">
                 <div>
                     <div class="h-28 sm:h-36 md:h-40 overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50">
-                        <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <img src="${item.imgUrl}" alt="${item.title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-60"></div>
                     </div>
                     <div class="p-3 sm:p-4">
@@ -633,7 +665,7 @@ function renderCertifications() {
                 </div>
                 <div class="px-3 sm:px-4 pb-3 sm:pb-4 pt-1">
                     <div class="border-t border-zinc-850 pt-2.5">
-                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                        <a href="${item.credentialUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
                             Kredensial <i class="fas fa-arrow-up-right-from-square text-[8px] sm:text-[9px]"></i>
                         </a>
                     </div>
@@ -670,7 +702,7 @@ function renderAll() {
                 <div class="glass-card tilt-element rounded-xl sm:rounded-2xl overflow-hidden p-3 sm:p-4 md:p-5 flex flex-col justify-between group reveal delay-${(index % 2) * 100}">
                     <div>
                         <div class="w-full h-24 sm:h-32 md:h-36 rounded-lg overflow-hidden bg-zinc-950 mb-2.5 relative border border-zinc-800/80 shadow-sm">
-                            <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <img src="${item.imgUrl}" alt="${item.title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-2 left-2 px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-zinc-950/85 backdrop-blur-md text-blue-400 rounded-md border border-blue-500/20">
                                 ${item.type}
                             </span>
@@ -683,11 +715,11 @@ function renderAll() {
                     </div>
 
                     <div class="mt-3 pt-2.5 border-t border-zinc-850 flex flex-wrap items-center gap-2">
-                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                        <a href="${item.credentialUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
                             <i class="fas fa-certificate text-[9px] sm:text-[10px]"></i> Kredensial
                         </a>
                         ${item.postUrl ? `
-                        <a href="${item.postUrl}" target="_blank" class="inline-flex items-center gap-1 text-[9px] sm:text-[11px] font-medium text-zinc-400 hover:text-white transition-all hover:translate-x-0.5">
+                        <a href="${item.postUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[9px] sm:text-[11px] font-medium text-zinc-400 hover:text-white transition-all hover:translate-x-0.5">
                             <i class="fab fa-instagram text-[10px] text-pink-500"></i> Publikasi
                         </a>` : ''}
                     </div>
@@ -725,7 +757,7 @@ function renderAll() {
                     </div>
                     
                     <div class="mt-3 pt-2.5 border-t border-zinc-850 flex items-center">
-                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                        <a href="${item.credentialUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
                             <i class="fas fa-certificate text-[9px] sm:text-[10px]"></i> Sertifikat <i class="fas fa-chevron-right text-[7px] opacity-70 ml-0.5"></i>
                         </a>
                     </div>
@@ -749,7 +781,7 @@ function renderAll() {
                         <p class="text-[10px] sm:text-xs text-zinc-400 font-medium mt-1 line-clamp-1">${item.event} • ${item.year}</p>
                     </div>
                     <div class="mt-2.5 pt-2 border-t border-zinc-850/60">
-                        <a href="${item.link}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
                             Lihat Berita <i class="fas fa-arrow-up-right-from-square text-[8px] sm:text-[9px]"></i>
                         </a>
                     </div>
@@ -771,13 +803,13 @@ function renderAll() {
             let linkHTML = '';
             if (item.webUrl) {
                 linkHTML += `
-                    <a href="${item.webUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                    <a href="${item.webUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
                         Kunjungi Web <i class="fas fa-arrow-up-right-from-square text-[8px] sm:text-[9px]"></i>
                     </a>`;
             }
             if (item.githubUrl) {
                 linkHTML += `
-                    <a href="${item.githubUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                    <a href="${item.githubUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
                         GitHub <i class="fab fa-github"></i>
                     </a>`;
             }
@@ -930,13 +962,28 @@ function typeEffect() {
     typeTimeout = setTimeout(typeEffect, typeSpeed);
 }
 
+// LISTENER UNTUK NAVIGASI TOMBOL BACK / FORWARD BROWSER
+window.addEventListener('popstate', () => {
+    const currentHash = window.location.hash.replace('#', '') || 'home';
+    showPage(currentHash, false);
+});
+
+window.addEventListener('hashchange', () => {
+    const currentHash = window.location.hash.replace('#', '') || 'home';
+    showPage(currentHash, false);
+});
+
 // DOM LOADED INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     // Render all items
     renderAll();
     
-    // Show home page with transition
-    showPage('home'); 
+    // Deteksi target page dari URL hash saat pertama kali dibuka / refresh
+    const initialHash = window.location.hash.replace('#', '');
+    const startPage = validPages.includes(initialHash) ? initialHash : 'home';
+    
+    // Tampilkan halaman target (false agar tidak membuat history state ganda di awal)
+    showPage(startPage, false); 
     
     // Start Typing Effect
     typeEffect();
@@ -1030,3 +1077,23 @@ document.addEventListener('mouseleave', () => {
         activeTiltCard = null;
     }
 }, true);
+
+// ==================== FLOATING BACK TO TOP BUTTON LOGIC ====================
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function handleBackToTopVisibility() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    
+    if (window.scrollY > 300) {
+        btn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+        btn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+    } else {
+        btn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        btn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+    }
+}
+
+window.addEventListener('scroll', handleBackToTopVisibility, { passive: true });
