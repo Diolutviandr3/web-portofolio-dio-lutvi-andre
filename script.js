@@ -467,6 +467,16 @@ const articles = [
 // Data Projects (Technical Projects)
 const projects = [
     {
+        title: "Website Resmi Padukuhan Kebonagung",
+        desc: "Platform portal informasi dan layanan digital resmi Padukuhan Kebonagung, Tridadi, Sleman, D.I. Yogyakarta. Berfungsi untuk transparansi kegiatan warga, publikasi agenda kemasyarakatan, potensi lokal, serta pelayanan administrasi digital.",
+        tags: ["Front End", "Back End", "Web Development", "Management"],
+        icon: "fas fa-globe",
+        year: "2026",
+        role: "Front End, Back End, & Pengelola",
+        githubUrl: "",
+        webUrl: "https://jelajah-kebonagung.vercel.app/"
+    },
+    {
         title: "Asem Dream Team Manager",
         desc: "Aplikasi web manajemen tim kolaboratif (Dream Team Manager) yang dirancang khusus untuk memantau performa, koordinasi tugas, dan kolaborasi tim akademik maupun pengembangan secara terpadu.",
         tags: ["React", "Vite", "Tailwind CSS", "ESLint"],
@@ -575,6 +585,7 @@ function renderCertifications() {
     const certDiv = document.getElementById('cert-render');
     if (!certDiv) return;
 
+    certDiv.className = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4.5";
     certDiv.innerHTML = '';
     
     const filteredCerts = certs.filter(item => {
@@ -604,23 +615,26 @@ function renderCertifications() {
 
     filteredCerts.forEach((item, index) => {
         certDiv.innerHTML += `
-            <div class="glass-card tilt-element rounded-2xl overflow-hidden group reveal delay-${(index % 3) * 100}">
-                <div class="h-44 overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50">
-                    <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-60"></div>
+            <div class="glass-card tilt-element rounded-xl sm:rounded-2xl overflow-hidden group flex flex-col justify-between reveal delay-${(index % 3) * 100}">
+                <div>
+                    <div class="h-28 sm:h-36 md:h-40 overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50">
+                        <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <span class="text-[8px] sm:text-[9px] font-bold tracking-widest text-blue-500 uppercase line-clamp-1">
+                            ${item.issuer.split(' - ')[0] || 'Sertifikasi'}
+                        </span>
+                        <h4 class="font-bold text-white text-xs sm:text-sm mt-1 line-clamp-2 leading-snug group-hover:text-blue-400 transition-colors">${item.title}</h4>
+                        <p class="text-[10px] sm:text-xs text-zinc-500 mt-1 sm:mt-1.5 flex items-center gap-1">
+                            <i class="far fa-calendar-alt text-[9px]"></i> ${item.year}
+                        </p>
+                    </div>
                 </div>
-                <div class="p-6">
-                    <span class="text-[9px] font-bold tracking-widest text-blue-500 uppercase">
-                        ${item.issuer.split(' - ')[0] || 'Sertifikasi'}
-                    </span>
-                    <h4 class="font-bold text-white text-base mt-1 line-clamp-2 leading-snug group-hover:text-blue-400 transition-colors">${item.title}</h4>
-                    <p class="text-xs text-zinc-500 mt-2 flex items-center gap-1.5">
-                        <i class="far fa-calendar-alt"></i> ${item.year}
-                    </p>
-                    
-                    <div class="mt-5 border-t border-zinc-850 pt-4">
-                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-500 hover:text-blue-400 hover:gap-2 transition-all">
-                            Tampilkan Kredensial <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                <div class="px-3 sm:px-4 pb-3 sm:pb-4 pt-1">
+                    <div class="border-t border-zinc-850 pt-2.5">
+                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                            Kredensial <i class="fas fa-arrow-up-right-from-square text-[8px] sm:text-[9px]"></i>
                         </a>
                     </div>
                 </div>
@@ -639,86 +653,80 @@ function renderAll() {
         skillDiv.innerHTML = ''; 
         skills.forEach((s, index) => {
             skillDiv.innerHTML += `
-                <span class="bg-zinc-900/60 backdrop-blur-md px-5 py-3 rounded-xl text-sm font-semibold border border-zinc-800 hover:border-blue-500/50 hover:text-white transition-all cursor-default shadow-md reveal delay-${(index % 4) * 75}">
+                <span class="bg-zinc-900/60 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold border border-zinc-800 hover:border-blue-500/50 hover:text-white transition-all cursor-default shadow-md reveal delay-${(index % 4) * 75}">
                     ${s}
                 </span>`;
         });
     }
 
-    // 2. Render Experiences (Timeline vertical)
+    // 2. Render Experiences (2 kolom di mobile, compact cards)
     const expDiv = document.getElementById('experience-render');
     if (expDiv) {
+        expDiv.className = "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5";
         expDiv.innerHTML = ''; 
         
-        let timelineHTML = `
-            <div class="relative border-l-2 border-zinc-800 ml-4 md:ml-8 pl-8 md:pl-12 py-2 space-y-12">`;
-            
         experiences.forEach((item, index) => {
-            timelineHTML += `
-                <div class="timeline-item relative reveal delay-${(index % 2) * 100}">
-                    <div class="glass-card tilt-element p-6 md:p-8 rounded-2xl flex flex-col lg:flex-row gap-6 items-start lg:items-center">
-                        <div class="flex-1 text-left order-2 lg:order-1">
-                            <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-blue-600/10 text-blue-400 rounded-full border border-blue-500/20">
+            expDiv.innerHTML += `
+                <div class="glass-card tilt-element rounded-xl sm:rounded-2xl overflow-hidden p-3 sm:p-4 md:p-5 flex flex-col justify-between group reveal delay-${(index % 2) * 100}">
+                    <div>
+                        <div class="w-full h-24 sm:h-32 md:h-36 rounded-lg overflow-hidden bg-zinc-950 mb-2.5 relative border border-zinc-800/80 shadow-sm">
+                            <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-2 left-2 px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider bg-zinc-950/85 backdrop-blur-md text-blue-400 rounded-md border border-blue-500/20">
                                 ${item.type}
                             </span>
-                            <h3 class="text-xl md:text-2xl font-extrabold text-white mt-3 group-hover:text-blue-400 transition-colors">${item.title}</h3>
-                            <p class="text-sm text-zinc-400 mt-1 font-medium">${item.org}</p>
-                            <p class="text-xs text-zinc-500 mt-0.5 flex items-center gap-1.5">
-                                <i class="far fa-calendar-alt"></i> Periode: ${item.year}
-                            </p>
-                            
-                            <div class="flex flex-wrap items-center gap-4 mt-5">
-                                <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-1">
-                                    <i class="fas fa-certificate text-[10px]"></i> Tampilkan Bukti Kredensial
-                                </a>
-                                ${item.postUrl ? `
-                                <a href="${item.postUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition-all hover:translate-x-1">
-                                    <i class="fab fa-instagram text-[11px] text-pink-500"></i> Lihat Publikasi
-                                </a>` : ''}
-                            </div>
                         </div>
+                        <h3 class="text-xs sm:text-sm md:text-base font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">${item.title}</h3>
+                        <p class="text-[10px] sm:text-xs text-zinc-400 mt-1 line-clamp-1 font-medium">${item.org}</p>
+                        <p class="text-[9px] sm:text-[10px] text-zinc-500 mt-0.5 flex items-center gap-1">
+                            <i class="far fa-calendar-alt text-[8px] sm:text-[9px]"></i> ${item.year}
+                        </p>
+                    </div>
 
-                        <div class="w-full lg:w-60 h-40 rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800/80 shadow-md order-1 lg:order-2 self-stretch lg:self-auto flex-shrink-0 relative group">
-                            <img src="${item.imgUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        </div>
+                    <div class="mt-3 pt-2.5 border-t border-zinc-850 flex flex-wrap items-center gap-2">
+                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                            <i class="fas fa-certificate text-[9px] sm:text-[10px]"></i> Kredensial
+                        </a>
+                        ${item.postUrl ? `
+                        <a href="${item.postUrl}" target="_blank" class="inline-flex items-center gap-1 text-[9px] sm:text-[11px] font-medium text-zinc-400 hover:text-white transition-all hover:translate-x-0.5">
+                            <i class="fab fa-instagram text-[10px] text-pink-500"></i> Publikasi
+                        </a>` : ''}
                     </div>
                 </div>`;
         });
-        
-        timelineHTML += `</div>`;
-        expDiv.innerHTML = timelineHTML;
     }
 
-    // 3. Render Achievements (Dengan sertifikat)
+    // 3. Render Achievements (2 kolom di mobile, compact cards)
     const achDiv = document.getElementById('achievement-render');
     if (achDiv) {
+        achDiv.className = "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5";
         achDiv.innerHTML = ''; 
-        achDiv.className = "grid grid-cols-1 md:grid-cols-2 gap-6";
 
         achievements.forEach((item, index) => {
             const isInternational = item.level === 'International';
             achDiv.innerHTML += `
-                <div class="glass-card tilt-element p-6 md:p-8 rounded-2xl relative overflow-hidden group reveal delay-${(index % 2) * 100}">
+                <div class="glass-card tilt-element p-3 sm:p-4.5 rounded-xl sm:rounded-2xl relative overflow-hidden group flex flex-col justify-between reveal delay-${(index % 2) * 100}">
                     <!-- Glow background effect inside card on hover -->
-                    <div class="absolute -right-16 -top-16 w-32 h-32 bg-blue-600/5 rounded-full blur-2xl group-hover:bg-blue-600/10 transition-all duration-500"></div>
+                    <div class="absolute -right-16 -top-16 w-28 h-28 bg-blue-600/5 rounded-full blur-2xl group-hover:bg-blue-600/10 transition-all duration-500"></div>
                     
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="p-3 bg-blue-600/10 rounded-xl text-blue-400 border border-blue-500/10 group-hover:bg-blue-600/20 group-hover:text-blue-300 transition-colors">
-                            <i class="fas fa-trophy text-2xl"></i>
+                    <div>
+                        <div class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-2.5">
+                            <div class="p-1.5 sm:p-2 bg-blue-600/10 rounded-lg sm:rounded-xl text-blue-400 border border-blue-500/10 group-hover:bg-blue-600/20 group-hover:text-blue-300 transition-colors flex-shrink-0">
+                                <i class="fas fa-trophy text-xs sm:text-base"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[8px] sm:text-[9px] font-bold ${isInternational ? 'text-amber-400 bg-amber-400/10 border-amber-500/20' : 'text-zinc-400 bg-zinc-800/40 border-zinc-700/20'} px-1.5 py-0.5 rounded border uppercase tracking-wider inline-block">
+                                    ${item.level}
+                                </span>
+                                <h3 class="text-xs sm:text-sm font-bold text-white mt-1 group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">${item.title}</h3>
+                            </div>
                         </div>
-                        <div class="flex-1">
-                            <span class="text-[9px] font-bold ${isInternational ? 'text-amber-400 bg-amber-400/10 border-amber-500/20' : 'text-zinc-400 bg-zinc-800/40 border-zinc-700/20'} px-2 py-0.5 rounded-full border uppercase tracking-wider">
-                                ${item.level} Achievement
-                            </span>
-                            <h3 class="text-lg md:text-xl font-bold text-white mt-2 group-hover:text-blue-400 transition-colors leading-snug">${item.title}</h3>
-                        </div>
+                        
+                        <p class="text-[10px] sm:text-xs text-zinc-400 font-medium line-clamp-1">${item.event} • ${item.year}</p>
                     </div>
                     
-                    <p class="text-xs text-zinc-400 font-medium ml-14">${item.event} • ${item.year}</p>
-                    
-                    <div class="mt-6 ml-14 border-t border-zinc-850 pt-4 flex items-center">
-                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-1">
-                            <i class="fas fa-certificate text-[10px]"></i> Tampilkan Sertifikat <i class="fas fa-chevron-right text-[8px] opacity-70"></i>
+                    <div class="mt-3 pt-2.5 border-t border-zinc-850 flex items-center">
+                        <a href="${item.credentialUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                            <i class="fas fa-certificate text-[9px] sm:text-[10px]"></i> Sertifikat <i class="fas fa-chevron-right text-[7px] opacity-70 ml-0.5"></i>
                         </a>
                     </div>
                 </div>`;
@@ -728,73 +736,93 @@ function renderAll() {
     // 4. Render Certifications (First load, filter 'Semua')
     renderCertifications();
 
-    // 5. Render Articles
+    // 5. Render Articles (2 kolom di mobile, compact cards)
     const artDiv = document.getElementById('article-render');
     if (artDiv) {
+        artDiv.className = "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5";
         artDiv.innerHTML = ''; 
         articles.forEach((item, index) => {
             artDiv.innerHTML += `
-                <div class="border-l-4 border-blue-500 pl-6 py-5 bg-zinc-900/30 rounded-r-2xl border-y border-r border-zinc-800/40 hover:border-blue-500/40 hover:bg-zinc-900/60 transition-all duration-300 reveal delay-${(index % 2) * 100}">
-                    <h4 class="font-bold text-white text-base md:text-lg leading-snug">${item.title}</h4>
-                    <p class="text-xs text-zinc-400 font-medium mt-1">${item.event} • ${item.year}</p>
-                    <a href="${item.link}" target="_blank" class="inline-flex items-center gap-1.5 mt-3 text-xs font-bold text-blue-500 hover:text-blue-400 hover:gap-2 transition-all">
-                        Lihat Berita Lengkap <i class="fas fa-arrow-up-right-from-square text-[9px]"></i>
-                    </a>
+                <div class="border-l-2 sm:border-l-4 border-blue-500 p-3 sm:p-4 bg-zinc-900/30 rounded-r-xl sm:rounded-r-2xl border-y border-r border-zinc-800/40 hover:border-blue-500/40 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col justify-between reveal delay-${(index % 2) * 100}">
+                    <div>
+                        <h4 class="font-bold text-white text-xs sm:text-sm leading-snug line-clamp-2 group-hover:text-blue-400 transition-colors">${item.title}</h4>
+                        <p class="text-[10px] sm:text-xs text-zinc-400 font-medium mt-1 line-clamp-1">${item.event} • ${item.year}</p>
+                    </div>
+                    <div class="mt-2.5 pt-2 border-t border-zinc-850/60">
+                        <a href="${item.link}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                            Lihat Berita <i class="fas fa-arrow-up-right-from-square text-[8px] sm:text-[9px]"></i>
+                        </a>
+                    </div>
                 </div>`;
         });
     }
 
-    // 6. Render Projects
+    // 6. Render Projects (2 kolom di mobile, compact cards)
     const projectDiv = document.getElementById('project-render');
     if (projectDiv) {
+        projectDiv.className = "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5";
         projectDiv.innerHTML = '';
         projects.forEach((item, index) => {
             let tagsHTML = '';
             item.tags.forEach(t => {
-                tagsHTML += `<span class="text-[9px] font-semibold bg-zinc-850 text-zinc-400 px-2 py-0.5 rounded-md border border-zinc-800">${t}</span>`;
+                tagsHTML += `<span class="text-[8px] sm:text-[9px] font-medium bg-zinc-850 text-zinc-400 px-1.5 py-0.5 rounded border border-zinc-800">${t}</span>`;
             });
 
-            let githubLinkHTML = '';
-            if (item.githubUrl) {
-                githubLinkHTML = `
-                    <a href="${item.githubUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-500 hover:text-blue-400 hover:gap-2 transition-all">
-                        GitHub Repo <i class="fab fa-github"></i>
+            let linkHTML = '';
+            if (item.webUrl) {
+                linkHTML += `
+                    <a href="${item.webUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                        Kunjungi Web <i class="fas fa-arrow-up-right-from-square text-[8px] sm:text-[9px]"></i>
                     </a>`;
+            }
+            if (item.githubUrl) {
+                linkHTML += `
+                    <a href="${item.githubUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] sm:text-xs font-bold text-blue-500 hover:text-blue-400 transition-all hover:translate-x-0.5">
+                        GitHub <i class="fab fa-github"></i>
+                    </a>`;
+            }
+            if (!linkHTML) {
+                linkHTML = `
+                    <span class="text-[9px] sm:text-[10px] text-zinc-500 flex items-center gap-1">
+                        <i class="fas fa-circle-check text-blue-500/80 text-[8px]"></i> Active Project
+                    </span>`;
             }
 
             let roleHTML = '';
             if (item.role) {
                 roleHTML = `
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-2">
+                    <p class="text-[8px] sm:text-[9px] text-zinc-500 font-bold uppercase tracking-wider mb-1">
                         Peran: <span class="text-blue-400">${item.role}</span>
                     </p>`;
             }
 
             projectDiv.innerHTML += `
-                <div class="glass-card tilt-element p-6 md:p-8 rounded-2xl relative overflow-hidden group reveal delay-${(index % 2) * 100}">
+                <div class="glass-card tilt-element p-3 sm:p-4.5 rounded-xl sm:rounded-2xl relative overflow-hidden group flex flex-col justify-between reveal delay-${(index % 2) * 100}">
                     <!-- Glow background effect inside card on hover -->
-                    <div class="absolute -right-16 -top-16 w-32 h-32 bg-blue-600/5 rounded-full blur-2xl group-hover:bg-blue-600/10 transition-all duration-500"></div>
+                    <div class="absolute -right-16 -top-16 w-28 h-28 bg-blue-600/5 rounded-full blur-2xl group-hover:bg-blue-600/10 transition-all duration-500"></div>
                     
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-blue-600/10 text-blue-400 border border-blue-500/10 flex items-center justify-center text-xl group-hover:bg-blue-600/20 group-hover:text-blue-300 transition-colors">
-                            <i class="${item.icon}"></i>
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-blue-600/10 text-blue-400 border border-blue-500/10 flex items-center justify-center text-xs sm:text-sm group-hover:bg-blue-600/20 group-hover:text-blue-300 transition-colors">
+                                <i class="${item.icon}"></i>
+                            </div>
+                            <span class="text-[10px] sm:text-xs text-zinc-500 font-bold">${item.year}</span>
                         </div>
-                        <span class="text-xs text-zinc-500 font-bold">${item.year}</span>
+                        
+                        <h3 class="text-xs sm:text-sm md:text-base font-bold text-white mt-1 group-hover:text-blue-400 transition-colors leading-snug line-clamp-1 sm:line-clamp-2">${item.title}</h3>
+                        
+                        <div class="mt-1 mb-2">
+                            ${roleHTML}
+                            <p class="text-[10px] sm:text-xs text-zinc-400 leading-relaxed line-clamp-3 sm:line-clamp-4 text-left">${item.desc}</p>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-1 mb-2.5">
+                            ${tagsHTML}
+                        </div>
                     </div>
                     
-                    <h3 class="text-xl font-bold text-white mt-3 group-hover:text-blue-400 transition-colors leading-snug">${item.title}</h3>
-                    
-                    <div class="mt-3 mb-4">
-                        ${roleHTML}
-                        <p class="text-sm text-zinc-400 leading-relaxed text-justify">${item.desc}</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        ${tagsHTML}
-                    </div>
-                    
-                    <div class="border-t border-zinc-850 pt-4 flex items-center justify-between">
-                        ${githubLinkHTML}
+                    <div class="border-t border-zinc-850 pt-2 flex items-center justify-between">
+                        ${linkHTML}
                     </div>
                 </div>`;
         });

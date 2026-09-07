@@ -109,22 +109,22 @@
             </div>
 
             <!-- Stats Counter Grid -->
-            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-zinc-900 w-full max-w-4xl reveal delay-300">
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 id="counter-certs" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Certifications</p>
+            <div class="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 pt-8 sm:pt-12 border-t border-zinc-900 w-full max-w-4xl reveal delay-300">
+                <div class="glass-card p-3.5 sm:p-5 rounded-xl sm:rounded-2xl">
+                    <h3 id="counter-certs" class="text-2xl sm:text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[9px] sm:text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-1.5">Certifications</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 id="counter-projects" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Projects Handled</p>
+                <div class="glass-card p-3.5 sm:p-5 rounded-xl sm:rounded-2xl">
+                    <h3 id="counter-projects" class="text-2xl sm:text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[9px] sm:text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-1.5">Projects Handled</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 id="counter-years" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Years Experience</p>
+                <div class="glass-card p-3.5 sm:p-5 rounded-xl sm:rounded-2xl">
+                    <h3 id="counter-years" class="text-2xl sm:text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[9px] sm:text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-1.5">Years Experience</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <h3 id="counter-achievements" class="text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
-                    <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Achievements</p>
+                <div class="glass-card p-3.5 sm:p-5 rounded-xl sm:rounded-2xl">
+                    <h3 id="counter-achievements" class="text-2xl sm:text-4xl md:text-5xl font-black text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">0+</h3>
+                    <p class="text-[9px] sm:text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-1.5">Achievements</p>
                 </div>
             </div>
         </section>
@@ -201,21 +201,21 @@
         <section id="experiences" class="page-content hidden py-10">
             <h2 class="text-4xl font-extrabold text-white mb-2 reveal delay-75">Work & Organizational Experiences</h2>
             <p class="text-sm text-zinc-500 mb-12 max-w-xl reveal delay-100">Perjalanan karir profesional, magang, volunteer, serta kontribusi organisasi kepemimpinan saya.</p>
-            <div id="experience-render"></div>
+            <div id="experience-render" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5"></div>
         </section>
 
         <!-- ACHIEVEMENTS SECTION -->
         <section id="achievements" class="page-content hidden py-10">
             <h2 class="text-4xl font-extrabold text-white mb-2 text-center reveal delay-75">Top Academic & Non-Academic Achievements</h2>
             <p class="text-sm text-zinc-500 text-center mb-12 max-w-xl mx-auto reveal delay-100">Daftar penghargaan terbaik yang telah saya capai di tingkat regional, nasional, hingga internasional.</p>
-            <div id="achievement-render"></div>
+            <div id="achievement-render" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5"></div>
         </section>
 
         <!-- PROJECTS SECTION -->
         <section id="projects" class="page-content hidden py-10">
             <h2 class="text-4xl font-extrabold text-white mb-2 reveal delay-75">Technical & Creative Projects</h2>
             <p class="text-sm text-zinc-500 mb-12 max-w-xl reveal delay-100">Kumpulan proyek inovasi dan karya visual digital yang telah saya tangani.</p>
-            <div id="project-render" class="grid md:grid-cols-2 gap-6"></div>
+            <div id="project-render" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5"></div>
         </section>
 
         <!-- CERTIFICATIONS SECTION -->
@@ -231,14 +231,14 @@
                 <button onclick="setCertFilter('Lokal')" class="cert-filter-btn px-5 py-2.5 rounded-xl border text-xs font-semibold bg-zinc-900 text-zinc-400 border-zinc-800/80 hover:border-zinc-700 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">Lokal</button>
             </div>
             
-            <div id="cert-render"></div>
+            <div id="cert-render" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4.5"></div>
         </section>
 
         <!-- ARTICLES SECTION -->
         <section id="articles" class="page-content hidden py-10">
             <h2 class="text-4xl font-extrabold text-white mb-2 reveal delay-75">Scientific Articles & Press Releases</h2>
             <p class="text-sm text-zinc-500 mb-12 max-w-xl reveal delay-100">Kumpulan publikasi ilmiah serta berita pers terkait kontribusi prestasi yang dirilis di media publikasi.</p>
-            <div id="article-render" class="grid gap-6"></div>
+            <div id="article-render" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4.5"></div>
         </section>
 
         <!-- CONTACT SECTION -->
